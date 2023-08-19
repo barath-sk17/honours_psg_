@@ -1,0 +1,315 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap');
+
+* {
+    margin: 0;
+    border: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+
+body{
+    animation: animate 30s ease-in-out infinite;
+    background-image: linear-gradient(rgba(0,0,50,0.8),rgba(0,0,50,0.8)),url('./img/psg.jpg');
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    place-items: center;
+    min-height: 100vh;
+    min-width: 100vw;
+    overflow: hidden;
+}
+main.container {
+    background: white;
+    min-width: 320px;
+    min-height: 40vh;
+    padding: 2rem;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+}
+
+main h1 {
+    font-weight: 600;
+    margin-bottom: 2rem;
+    position: relative;
+    left: 100px;
+    font-family: 'candara';
+}
+
+main h1::before {
+    content: '';
+    position: absolute;
+    height: 4px;
+    width: 25px;
+    line-height: 30px;
+    bottom: -7px;
+    left: 25px;
+    border-radius: 20px;
+    background: linear-gradient(45deg, #8e2de2, #4a00e0);
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+.input-field {
+    position: relative;
+}
+
+form .input-field:first-child {
+    margin-bottom: 1.5rem;
+}
+
+.input-field .underline::before {
+    content: '';
+    position: absolute;
+    height: 1px;
+    width: 100%;
+    bottom: -5px;
+    left: 0;
+    background: rgba(0, 0, 0, 0.2);
+}
+
+.input-field .underline::after {
+    content: '';
+    position: absolute;
+    height: 1px;
+    width: 100%;
+    bottom: -5px;
+    left: 0;
+    background: linear-gradient(45deg, #8e2de2, #4a00e0);
+    transform: scaleX(0);
+    transition: all .3s ease-in-out;
+    transform-origin: left;
+}
+
+.input-field input:focus ~ .underline::after {
+    transform: scaleX(1);
+}
+
+.input-field input {
+    outline: none;
+    font-size: 0.9rem;
+    color: rgba(0, 0, 0, 0.7);
+    width: 100%;
+}
+
+.input-field input::placeholder {
+    color: rgba(0, 0, 0, 0.5);
+}
+
+.submit-button {
+    margin-top: 2rem;
+    padding: 0.4rem;
+    width: 100%;
+    background: linear-gradient(to left, #4776E6, #8e54e9);
+    cursor: pointer;
+    color: white;
+    font-size: 0.9rem;
+    font-weight: 300;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    border: none; /* Remove default button border */
+}
+
+.submit-button:hover {
+    letter-spacing: 0.5px;
+    background: linear-gradient(to right, #4776E6, #8e54e9);
+}
+
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+    background-color: white;
+    margin: auto;
+    align-content: center;
+    justify-content: center;
+    top:32%;
+    border: 1px solid #888;
+    width: 35%;
+    height: 35%;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 10px;
+
+}
+.modal-content h2{
+    min-width: 100%;
+    min-height: 100%;
+    color: grey;
+    position: absolute;
+    align-content: center;
+    justify-content: center;
+    text-align: center;
+    top:40%;
+}
+
+
+
+/* The Close Button */
+.close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+/* .container{
+    display: flex;
+    position:absolute;
+    left:50%;
+    transform: translateX(-50%);
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 350px;
+    width: 350px;
+    background-color: #fff;
+    opacity: calc(75%);
+    border-radius: 10px;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+    
+
+}
+.container h1 {
+    font-weight: 600;
+    top:20%;
+    position: absolute;
+    transform: translateY(-10px);
+}
+.container h1::before {
+    content: '';
+    position: absolute;
+    height: 4px;
+    width: 25px;
+    left: 0;
+    border-radius: 8px;
+    background: linear-gradient(45deg, #8e2de2, #4a00e0);
+}
+.container form {
+    display: flex;
+    flex-direction: column;
+}
+
+.input-field {
+    position: relative;
+}
+
+form .input-field:first-child {
+    margin-bottom: 1.5rem;
+}
+
+.input-field .underline::before {
+    content: '';
+    position: absolute;
+    height: 1px;
+    width: 100%;
+    bottom: -5px;
+    left: 0;
+    background: rgba(0, 0, 0, 0.2);
+}
+
+.input-field .underline::after {
+    content: '';
+    position: absolute;
+    height: 1px;
+    width: 100%;
+    bottom: -5px;
+    left: 0;
+    background: linear-gradient(45deg, #8e2de2, #4a00e0);
+    transform: scaleX(0);
+    transition: all .3s ease-in-out;
+    transform-origin: left;
+}
+
+.input-field input:focus ~ .underline::after {
+    transform: scaleX(1);
+}
+
+.input-field input {
+    outline: none;
+    font-size: 0.9rem;
+    color: rgba(0, 0, 0, 0.7);
+    width: 100%;
+}
+
+.input-field input::placeholder {
+    color: rgba(0, 0, 0, 0.5);
+}
+
+form input[type="submit"] {
+    margin-top: 2rem;
+    padding: 0.4rem;
+    width: 100%;
+    background: linear-gradient(to left, #4776E6, #8e54e9);
+    cursor: pointer;
+    color: white;
+    font-size: 0.9rem;
+    font-weight: 300;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    margin-top: 50px;
+}
+
+form input[type="submit"]:hover {
+    letter-spacing: 0.5px;
+    background: linear-gradient(to right, #4776E6, #8e54e9);
+}
+/*
+p{
+    text-align: center;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label{
+    font-size: 20px;
+    font-weight: bold;
+}
+
+input{
+    padding: 5px;
+    border: none;
+    border-bottom: 1px solid rgb(137, 137, 137);
+    margin-top: 10px;
+    outline: none;
+}
+input .underline::after {
+    content: '';
+    position: absolute;
+    height: 1px;
+    width: 100%;
+    bottom: -5px;
+    left: 0;
+    background: linear-gradient(45deg, #8e2de2, #4a00e0);
+    transform: scaleX(0);
+    transition: all .3s ease-in-out;
+    transform-origin: left;
+}*/

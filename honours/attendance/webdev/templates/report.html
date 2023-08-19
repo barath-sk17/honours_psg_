@@ -1,0 +1,51 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Attendance Report</title>
+  <link rel="stylesheet" href="./report.css">
+</head>
+<body>
+    <header class="header">
+      <img src="{% static 'img/logo.png' %}" alt="Logo">
+      <h1>BE/BTech Honors Attendance System</h1>  
+      <div class="professor-name">
+        <!--<span id="professor-name"></span>-->
+        <button id="logout-button">Logout</button>            
+        <!--<a href="http://127.0.0.1:8000/login/" id="logout-button">Logout</a>-->
+      </div>
+    </header>
+    <header class="header-buttons">
+      <nav class="nav">
+          <div class="container">
+              <ul>
+                  <li><a class="home" href="home.html" class="current">Home</a></li>
+                  <li><a href="attendance.html">Attendance</a></li>
+                  <li><a class="report" href="report.html">Report</a></li>
+              </ul>
+          </div>
+      </nav>
+    </header>
+  <table id="attendanceTable">
+    <thead>
+      <tr>
+        <th>Name</th>\
+        <th>Roll Number</th>
+        <th>Attendance Status</th>
+
+      </tr>
+    </thead>
+    <tbody>
+      <!-- Table rows will be populated dynamically using JavaScript -->
+    </tbody>
+  </table>
+  <script>
+    var logoutButton = document.getElementById("logout-button");
+        logoutButton.addEventListener("click", function() {
+            window.location.href = "http://127.0.0.1:8000/login/"; // Change to your actual login page URL
+        });
+  </script>
+</body>
+</html>

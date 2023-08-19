@@ -1,0 +1,147 @@
+/* Header section*/
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+    font-family: 'candara';
+}
+body{
+    font-family: 'Open Sans', sans-serif;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    min-width: 100vw;
+}
+.header {
+    background-color:#1261A0;/* Blue color for the header */
+    color: #fff; /* Text color to white for better visibility */
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    max-height: 100px;
+}
+.header img {
+    float: left;
+    width: 80px;
+    height: 80px;
+    align-items: center;
+    background: #555;
+  }
+  
+  .header h1 {
+    position: absolute;
+    left: 30%;
+  }
+  #professor-name{
+    font-weight: bold;
+    position:fixed;
+   right:10px;
+   top:40px;
+   margin-right: 100px;
+}
+
+  #logout-button {
+    position:fixed;
+   right:10px;
+   top:35px;
+    display: inline-flex;
+    justify-content: center;
+    background-color: #4a90e2;
+    color: #ffffff;
+    align-items: center;
+    text-decoration: none;
+    border-radius: 8px;
+    cursor: pointer;
+    width: 70px;
+   height: 35px;
+   line-height: 20px;
+  }
+  
+  #logout-button:hover {
+    background-color: rgb(21, 111, 185)
+  }
+  .professor-info {
+    display: flex;
+    align-items: center;
+  }
+  .header-buttons{
+    background-color: #1b3f71;
+    padding: 10px 0;
+  }
+  .nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .nav li {
+    display: inline; /* Display list items in a horizontal line */
+    margin: 0 10px;
+  }
+  .nav a {
+    color: #ffffff;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+  }
+  .nav .report{
+    background-color: #4a90e2;
+  }
+  .nav .attendance a.current,
+  .nav a:hover {
+    background-color: rgb(21, 111, 185);
+  }
+  
+/* end of Header section*/
+
+
+@font-face {
+    font-family: Lato-Regular;
+    src: url(../fonts/Lato/Lato-Regular.ttf)
+}
+
+@font-face {
+    font-family: Lato-Bold;
+    src: url(../fonts/Lato/Lato-Bold.ttf)
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box
+}
+body,html {
+    overflow: hidden;
+    height: 100%;
+    font-family: sans-serif;
+}
+h1.heading{
+    text-align: center;
+    margin-top: 100px;
+}
+table {
+    border-collapse: collapse;
+    width: 75%; 
+    margin: 20px ; 
+    left: 10%;
+    top: -30px
+  }
+td{
+    text-align: center;
+}
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+}
+th {
+    background-color: #1261a0; /* Blue color for the th (heading) */
+    color: #fff; /* Text color to white for better visibility */
+    font-family:Verdana, Geneva, Tahoma, sans-serif ;
+}
+#attendanceTable{
+    position: absolute;
+    top: 25%;
+}
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }

@@ -1,0 +1,75 @@
+{% load static %}
+{% include 'header1.html' %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attendance</title>
+    <!--<link rel="stylesheet" href="menu.css" />
+    <link rel="stylesheet" href="attendance.css" />-->
+
+</head>
+<body>
+    <header class="header">
+        <img src="{% static 'img/logo.png' %}" alt="Logo">
+        <h1>BE/BTech Honours Attendance System</h1>  
+        <div class="professor-name">
+            <!--<span id="professor-name"></span>-->
+            <button id="logout-button">Logout</button>            
+            <!--<a href="http://127.0.0.1:8000/login/" id="logout-button">Logout</a>-->
+        </div>
+    </header>
+    <header class="header-buttons">
+        <nav class="nav">
+            <div class="container">
+                <ul>
+                    <li><a id="homepage" class="current">Home</a></li>
+                    <li><a id="attendancepage">Attendance</a></li>
+                    <li><a id="reportpage">Report</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <div id = "container-course">
+        <ul id = "list">
+            {% for i,j,k in data %}
+            <li class="list-element">    
+                <button type = "button" id = "id-{{j}}" class = "course-id" onclick = 'getStudentDetails(this.id.slice(3))'><a href="#" class = "anchor">{{j}}</a></button>
+                <button type = "button" id = "name-{{j}}" class = "course-name" onclick = 'getStudentDetails(this.id.slice(5))'><a href="#" class = "anchor">{{k}}</a></button>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+    <script>
+        var segments = window.location.pathname.split('/');
+        console.log(segments)
+        var logoutButton = document.getElementById("logout-button");
+        logoutButton.addEventListener("click", function() {
+            window.location.href = "http://127.0.0.1:8000/login/"; // Change to your actual login page URL
+        });
+        function getStudentDetails(id){
+            console.log(id);
+            sessionStorage.course_id = id;
+            var segments = window.location.pathname.split('/');
+            //console.log(segments)
+            //console.log('http://127.0.0.1:8000/check/2023/Even Semester/f1/'+id)
+            window.location.href = 'http://127.0.0.1:8000/check/2023/Odd/'+segments[4]+'/'+id
+        }
+
+        var homeButton = document.getElementById("homepage");
+        homeButton.addEventListener("click", function() {
+            window.location.href = "http://127.0.0.1:8000/home/"+segments[4]; // Change to your actual login page URL
+        });
+
+        var attendanceButton = document.getElementById("attendancepage");
+        attendanceButton.addEventListener("click", function() {
+            window.location.href = "http://127.0.0.1:8000/check/2023/Odd/"+segments[4]; // Change to your actual login page URL
+        });
+    </script>
+
+</body>
+</html>
+

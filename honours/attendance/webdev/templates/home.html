@@ -1,0 +1,47 @@
+{% load static %}
+{% include 'header1.html' %}
+<!DOCTYPE html>
+<body>
+    <header class="header">
+        <img src="{% static 'img/logo.png' %}" alt="Logo">
+        <h1>BE/BTech Honors Attendance System</h1>  
+        <div class="professor-name">
+            <!--<span id="professor-name"></span>-->
+            <button id="logout-button">Logout</button>            
+            <!--<a href="http://127.0.0.1:8000/login/" id="logout-button">Logout</a>-->
+        </div>
+    </header>
+    <header class="header-buttons">
+        <nav class="nav">
+            <div class="container">
+                <ul>
+                    <li><a id="homepage" class="current">Home</a></li>
+                    <li><a id="attendancepage">Attendance</a></li>
+                    <li><a id="reportpage">Report</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <!--<object data="header.html" width="100%" height="100%"></object>-->
+
+    <script>
+        var segments = window.location.pathname.split('/');
+        console.log(segments)
+        var logoutButton = document.getElementById("logout-button");
+        logoutButton.addEventListener("click", function() {
+            window.location.href = "http://127.0.0.1:8000/login/"; // Change to your actual login page URL
+        });
+
+        var homeButton = document.getElementById("homepage");
+        homeButton.addEventListener("click", function() {
+            window.location.href = "http://127.0.0.1:8000/home/"+segments[2]; // Change to your actual HOME page URL
+        });
+
+        var attendanceButton = document.getElementById("attendancepage");
+        attendanceButton.addEventListener("click", function() {
+            window.location.href = "http://127.0.0.1:8000/check/2023/Odd/"+segments[2]; // Change to your actual CHECK page URL
+        });
+
+    </script>
+</body>
+</html>

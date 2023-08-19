@@ -1,0 +1,594 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box
+}
+
+h1{
+    position: absolute;
+    left:50%;
+    top:18%;
+    color: black;
+    transform: translateX(-50%);
+    font-family: 'Trebuchet MS', sans-serif;
+    padding-top: 20px;
+}
+
+body,html {
+    height: 100%;
+    font-family: sans-serif;
+}
+#body-absentees{
+    overflow: hidden;
+}
+a {
+    margin: 0;
+    transition: all .4s;
+    -webkit-transition: all .4s;
+    -o-transition: all .4s;
+    -moz-transition: all .4s
+}
+
+a:focus {
+    outline: none!important
+}
+
+a:hover {
+    text-decoration: none
+}
+
+h1,h2,h3,h4,h5,h6 {
+    margin: 0
+}
+
+p {
+    margin: 0
+}
+
+ul,li {
+    margin: 0;
+    list-style-type: none
+}
+
+input {
+    display: block;
+    outline: none;
+    border: none!important
+}
+
+textarea {
+    display: block;
+    outline: none
+}
+
+textarea:focus,input:focus {
+    border-color: transparent!important
+}
+
+button {
+    outline: none!important;
+    border: none;
+    background: 0 0
+}
+
+button:hover {
+    cursor: pointer
+}
+
+iframe {
+    border: none!important
+}
+
+.js-pscroll {
+    position: relative;
+    overflow: hidden
+}
+
+.table100 .ps__rail-y {
+    width: 9px;
+    background-color: transparent;
+    opacity: 1!important;
+    right: 5px
+}
+
+.table100 .ps__rail-y::before {
+    content: "";
+    display: block;
+    position: absolute;
+    background-color: #ebebeb;
+    border-radius: 5px;
+    width: 100%;
+    height: calc(100% - 30px);
+    left: 0;
+    top: 15px
+}
+
+.table100 .ps__rail-y .ps__thumb-y {
+    width: 100%;
+    right: 0;
+    background-color: transparent;
+    opacity: 1!important
+}
+
+.table100 .ps__rail-y .ps__thumb-y::before {
+    content: "";
+    display: block;
+    position: absolute;
+    background-color: #ccc;
+    border-radius: 5px;
+    width: 100%;
+    height: calc(100% - 30px);
+    left: 0;
+    top: 15px
+}
+
+.limiter {
+    width: 1366px;
+    margin: 0 auto
+}
+
+.container-table100 {
+    width: 100%;
+    min-height: 100vh;
+    background: #fff;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 33px 30px
+}
+
+.wrap-table100 {
+    width: 1170px
+}
+
+.table100 {
+    background-color: #fff
+}
+
+table {
+    width: 100%
+}
+
+th,td {
+    font-weight: unset;
+    padding-right: 10px
+}
+.column1{
+    width: 10%;
+    padding-left: 40px
+}
+.column2 {
+    width: 20%;
+    padding-left: 40px
+}
+
+.column3 {
+    width: 30%;
+    padding-left: 40px;
+}
+
+.column4 {
+    width: 40%;
+    padding-left: 100px;
+    padding-right: 100px;
+}
+
+.table100-head th {
+    padding-top: 18px;
+    padding-bottom: 18px
+}
+
+.table100-body td {
+    padding-top: 16px;
+    padding-bottom: 16px
+}
+
+.table100 {
+    position: relative;
+    padding-top: 60px
+}
+
+.table100-head {
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0
+}
+
+.table100-body {
+    max-height: 400px;
+    overflow: auto
+}
+
+.table100.ver1 th {
+    font-family: Lato-Bold;
+    font-size: 18px;
+    color: #fff;
+    line-height: 1.4;
+    background-color: #1261A0
+}
+
+.table100.ver1 td {
+    font-family: Lato-Regular;
+    font-size: 15px;
+    color: gray;
+    line-height: 1.4
+}
+
+.table100.ver1 .table100-body tr:nth-child(even) {
+    background-color: #f8f6ff
+}
+
+.table100.ver1 {
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 0 40px 0 rgba(0,0,0,.15);
+    -moz-box-shadow: 0 0 40px 0 rgba(0,0,0,.15);
+    -webkit-box-shadow: 0 0 40px 0 rgba(0,0,0,.15);
+    -o-box-shadow: 0 0 40px 0 rgba(0,0,0,.15);
+    -ms-box-shadow: 0 0 40px 0 rgba(0,0,0,.15)
+}
+
+.table100.ver1 .ps__rail-y {
+    right: 5px
+}
+
+.table100.ver1 .ps__rail-y::before {
+    background-color: #ebebeb
+}
+
+.table100.ver1 .ps__rail-y .ps__thumb-y::before {
+    background-color: #ccc
+}
+.table100.ver5 .table100-head th {
+    padding-top: 25px;
+    padding-bottom: 25px
+}
+
+input[type='checkbox'] {
+    accent-color: red;
+}
+input.largerCheckbox {
+    transform : scale(10);
+}
+.c4{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+td{
+    text-align: center;
+}
+button {
+    background-color: #1261A0;
+    color: white;
+    border: 1px solid white;
+    border-radius: 5px;
+    padding:10px 15px 10px 15px;
+    margin:0 10px 0 10px;
+}
+.c4 > button{
+    margin-right: 10px;
+    color: white;
+    border-radius: 5px;
+    padding: 5px 10px;
+    border: none;
+    cursor: pointer;
+}
+
+.c4 > button:nth-child(1){
+    background-color: green;
+}
+.c4 > button:nth-child(2){
+    background-color: red;
+}
+#absent{
+    background-color: red;
+}
+#submit-btn{
+    position: absolute;
+    top:90%;
+    min-width: 100vw;
+}
+#submit-btn button{
+    left: 50%;
+    position: absolute;
+    transform: translateX(-50%);
+}
+#input-date{
+    position: absolute;
+    top:5%;
+    left:30%;
+    min-width: 100vw;
+}
+#input-date input{
+    padding: 10px 20px 10px 20px;
+    background-color: #f1f4f9;
+    border-radius: 5px;
+}
+#from{
+    position: absolute;
+    top:5%;
+    left:50%;
+    min-width: 100vw;
+}
+#from input{
+    background-color: #f1f4f9;
+    border: 1px solid;
+    padding-left: 15px;
+    width: 80px;
+    height: 38px;
+    justify-content: center;
+    line-height: 1.65;
+    float: left;
+    border-radius: 5px;
+    border: 1px solid #eee;
+}
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button
+{
+    margin: 0;
+}
+
+input[type=number]
+{
+    -moz-appearance: textfield;
+}
+
+#from input:focus {
+    outline: 0;
+}
+#input-container{
+    display: flex;
+}
+#to{
+    position: absolute;
+    top:5%;
+    left:70%;
+    min-width: 100vw;
+}
+#to input{
+    background-color: #f1f4f9;
+    padding-left: 15px;
+    border: 1px solid;
+    width: 80px;
+    height: 38px;
+    justify-content: center;
+    line-height: 1.65;
+    float: left;
+    border-radius: 5px;
+    border: 1px solid #eee;
+}
+.input-labels{
+    top:6.5%;
+    justify-content: center;
+    position: absolute;
+}
+.input-labels2{
+    top:6.5%;
+    justify-content: center;
+    position: absolute;
+    color: white;
+}
+#label1{
+    left:22%;
+}
+#label2{
+    left:46%;
+}
+#label3{
+    left:67.5%;
+}
+#input-container2{
+    min-height: 15%;
+    min-width: 100vw;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    background-color: #1261A0;
+}
+#label2-2{
+    left:41%;
+}
+#label3-2{
+    left:52%;
+}
+#from2{
+    position: absolute;
+    top:5%;
+    left:44%;
+    min-width: 100vw;
+}
+#from2 input{
+    background-color: #f1f4f9;
+    border: 1px solid;
+    padding-left: 15px;
+    width: 80px;
+    height: 38px;
+    justify-content: center;
+    line-height: 1.65;
+    float: left;
+    border-radius: 5px;
+    border: 1px solid #eee;
+}
+#to2{
+    position: absolute;
+    top:5%;
+    left:54%;
+    min-width: 100vw;
+}
+#to2 input{
+    background-color: #f1f4f9;
+    padding-left: 15px;
+    border: 1px solid;
+    width: 80px;
+    height: 38px;
+    justify-content: center;
+    line-height: 1.65;
+    float: left;
+    border-radius: 5px;
+    border: 1px solid #eee;
+}
+#btn-report{
+    position: absolute;
+    top:5%;
+    left:65%;
+}
+button {
+    transition-duration: 0.4s;
+}
+button:hover {
+    background-color: cornflowerblue; /* Green */
+    color: white;
+    transition: 0.7s;
+}
+h4{
+    padding-bottom: 10px;
+}
+#report-result{
+    position: absolute;
+    left:50%;
+    justify-content: center;
+    align-content: center;
+    transform: translateX(-50%);
+    background-color: #1261A0;
+    color:white;
+    padding: 20px;
+    width: 30%;
+    border-radius: 10px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+input:checked + .slider {
+    background-color: red;
+}
+
+input:focus + .slider {
+    box-shadow: 0 0 1px red;
+}
+
+input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+}
+
+
+.slider.round {
+    border-radius: 34px;
+}
+
+.slider.round:before {
+    border-radius: 50%;
+}
+*/
+.container {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 20px;
+    cursor: pointer;
+    font-size: 25px;
+}
+
+/* Hide the default checkbox */
+.container input {
+    visibility: hidden;
+    cursor: pointer;
+}
+
+/* Create a custom checkbox */
+.mark {
+    position: absolute;
+    left:50%;
+    height: 25px;
+    width: 25px;
+    background-color: green;
+}
+
+.container:hover input ~ .mark {
+    background-color: red;
+}
+
+.container input:checked ~ .mark {
+    background-color: red;
+}
+
+/* Create the mark/indicator (hidden when not checked) */
+.mark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+/* Show the mark when checked */
+.container input:checked ~ .mark:after {
+    display: block;
+}
+
+/* Style the mark/indicator */
+.container .mark:after {
+    left: 9px;
+    top: 5px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    transform: rotate(45deg);
+}

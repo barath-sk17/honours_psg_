@@ -1,0 +1,79 @@
+{% include 'header3.html' %}
+<!DOCTYPE html>
+<html lang="en">
+  <body>
+    <main class="container">
+      {% csrf_token %}
+      <h1>Login</h1>
+      <form method="post">
+        <div class="input-field">
+          <input type="text" name="username" id="username"
+              placeholder="Username">
+          <div class="underline"></div>
+        </div>
+        <div class="input-field">
+          <input type="password" name="password" id="password"
+              placeholder="Password">
+          <div class="underline"></div>
+        </div>
+        <button type="button" class="submit-button" onclick="validateLogin()">Login</button>
+        <div id="myModal" class="modal">
+          <!-- Modal content -->
+          <div class="modal-content">
+              <span class="close" onclick="closeModal()">&times;</span>
+              <h2>Invalid Login</h2>
+              <h3></h3>
+          </div>
+      </div>
+      
+      </div>
+      </form>
+      
+    </main>
+    <script>
+      
+      function validateLogin() {
+          var username = document.getElementById('username').value;
+          var password = document.getElementById('password').value;
+          console.log(username);
+          fetch("https://edviewx.psgtech.ac.in/LoginAuth/api/Login/LoginAuth/", {
+          method: "POST",
+          headers: {
+              "Content-Type": "application/json"
+          },
+          body: JSON.stringify({
+              Emp_id : username,
+              Pwd : password
+          })
+      })
+          .then(response => response.json())
+          .then(data => {
+            console.log(data);
+              data.forEach(item => {
+              //console.log(item.Response);
+                  // Check if the "Response" property is true or false
+                  if (item.Response === true) {
+                         
+                          window.location.href='http://127.0.0.1:8000/home/'+item.Id;
+                          
+                  } else {
+                      openModal();
+                  }
+              });
+          });
+      }
+      
+      function openModal() {
+          var modal = document.getElementById('myModal');
+          modal.style.display = 'block';
+      }
+
+      function closeModal() {
+          var modal = document.getElementById('myModal');
+          modal.style.display = 'none';
+      }
+
+  </script>
+
+  </body>
+</html>

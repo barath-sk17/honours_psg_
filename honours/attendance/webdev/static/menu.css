@@ -1,0 +1,125 @@
+/* Header section*/
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+    font-family: 'candara';
+}
+body{
+    font-family: 'Open Sans', sans-serif;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    min-width: 100vw;
+}
+.header {
+    background-color:#1261A0;/* Blue color for the header */
+    color: #fff; /* Text color to white for better visibility */
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    max-height: 100px;
+}
+.header img {
+    float: left;
+    width: 80px;
+    height: 80px;
+    align-items: center;
+    background: #555;
+}
+.header h1 {
+position: absolute;
+left: 50%;
+transform: translateX(-50%);
+}
+#professor-name{
+font-weight: bold;
+position:fixed;
+right:10px;
+top:40px;
+margin-right: 100px;
+}
+
+/* #logout-button {
+position:fixed;
+right:10px;
+top:35px;
+display: inline-flex;
+justify-content: center;
+background-color: #1261A0;
+color: #ffffff;
+align-items: center;
+text-decoration: none;
+border-radius: 8px;
+width: 70px;
+height: 35px;
+line-height: 20px;
+} */
+
+#logout-button{
+    position:absolute;
+    display: inline-flex;
+    justify-content: center;
+    background-color: #1261A0;
+    color: #ffffff;
+    align-items: center;
+    text-decoration: none;
+    border-radius: 8px;
+    right:2.5%;
+    top: 5%;
+}
+
+#logout-button:hover {
+background-color: rgb(21, 111, 185)
+}
+.professor-info {
+display: flex;
+align-items: center;
+}
+.header-buttons{
+background-color: #1b3f71;
+padding: 10px 0;
+}
+.nav ul {
+list-style: none !important ;
+margin: 0 !important;
+padding: 0 !important;
+}
+.nav li {
+display: inline !important; /* Display list items in a horizontal line */
+margin: 0 10px !important;
+}
+.nav a{ 
+color: #ffffff !important; 
+text-decoration: none !important;
+padding: 10px 20px !important;
+border-radius: 8px !important;
+}
+
+.header .title .txt{
+    color:white;
+    position: absolute;
+    font-size: 30px;
+    left: 50%;
+    top : 10px;
+}
+
+button {
+    outline: none!important;
+    border: none;
+    background: 0 0
+}
+
+button:hover {
+    cursor: pointer
+}
+button {
+    background-color: #1261A0;
+    color: white;
+    border: 1px solid white;
+    border-radius: 5px;
+    padding:10px 15px 10px 15px;
+    margin:0 10px 0 10px;
+}
+
+/* end of Header section*/

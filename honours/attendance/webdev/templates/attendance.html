@@ -1,0 +1,282 @@
+{% load static %}
+{% include 'header.html' %}
+
+<!DOCTYPE html>
+<html>
+
+<body id="body-absentees">
+    <header class="header">
+        <img src="{% static 'img/logo.png' %}" alt="Logo">
+        <div class="title">
+            <h1 class="txt">BE/BTech Honors Attendance System</h1>
+        </div>
+          
+        <div class="professor-name">
+            <!--<span id="professor-name"></span>-->
+            <button id="logout-button">Logout</button>            
+            <!--<a href="http://127.0.0.1:8000/login/" id="logout-button">Logout</a>-->
+        </div>
+    </header>
+    <header class="header-buttons">
+        <nav class="nav">
+            <div class="container-menu">
+                <ul>
+                    <li><a id="homepage" class="current">Home</a></li>
+                    <li><a id="attendpage">Attendance</a></li>
+                    <li><a id="reportpage">Report</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <form id="myForm" action="{% url 'my_ajax_view' %}"> 
+        <div class="container-sheet">
+            <div id = "input-container">
+                {% csrf_token %}
+                <label class ="input-labels" id="label1">Select Date</label>
+                <input type="date" id="date_" name="date_"
+                        value="2023-06-19"
+                        min="2023-06-19" max="2023-12-31">
+                <label class ="input-labels" id="label2">From</label>
+                <input type="number" min="1" max="10" value="1" id="from_" name="from_">
+                <label class ="input-labels" id="label3">To</label>
+                <input  type="number" min="1" max="10" value="1" id="to_" name="to_">
+            </div>
+            <div class="container-table100">
+                <div class="wrap-table100">
+                    <div class="table100 ver1 m-b-110">
+                        <div class="table100-head">
+                            <table id="table1">
+                                <thead>
+                                <tr class="row100 head">
+                                    <th class ="cell100 column1">No</th>
+                                    <th class="cell100 column2">Roll No</th>
+                                    <th class="cell100 column3">Name</th>
+                                    <th class="cell100 column4">Mark Absentees</th>                                </tr>
+                                </thead>
+                            </table>
+                        </div>
+                        <div class="table100-body">
+                            <table>
+                                <tbody>
+                                    
+                                    {% for i,j,k in data %}
+                                    <tr>    
+                                        <td id="td1">{{i}}</td>
+                                        <td id="td2">{{j}}</td>
+                                        <td id="td3">{{k}}</td>
+                                        <!-- <td id="td4"><input type="checkbox" id = "btn-{{i}}" class = "mark"/></td> -->
+                                        <td style="text-align: center; vertical-align: middle;" id="td4"><input class = "btn-check" type="checkbox" id = "btn-{{i}}"/></td>
+                                    </tr>
+                                    {% endfor %}
+                                    
+                                </tbody>
+                            </table> 
+                        </div>
+                    </div>
+                </div>
+                <!--
+                <div class="wrap-table100-2">
+                    <div class="table100 ver1 m-b-110">
+                        <div class="table100-head">
+                            <table id="table2">
+                                <thead>
+                                <tr class="row100 head">
+                                    <th class="cell100 column4">Mark Absentees</th>
+                                </tr>
+                                </thead>
+                            </table>
+                        </div>
+                        <div class = "table100-body">
+                            <table>
+                                <tbody>
+                                    
+                                    {% for i in datalen|getrange %}
+                                    <tr>
+                                        
+                                    </tr>
+                                        {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            -->
+                
+
+
+            </div>
+            <div id="submit-btn">
+                <button type="button" onclick="sendDataToDjango()">SUBMIT</button>
+            </div>
+            <div id="myModal" class="modal">
+
+                <!-- Modal content -->
+                <div class="modal-content">
+                    <span class="close">&times;</span>
+                    <h3>Attendance Marked Successfully</h3>
+                </div>
+            
+            </div>
+        </div>        
+    </form>
+
+    <script>
+
+        var segments = window.location.pathname.split('/');
+        console.log(segments)
+
+        var homeButton = document.getElementById("homepage");
+        homeButton.addEventListener("click", function() {
+            window.location.href = "http://127.0.0.1:8000/home/"+segments[4]; // Change to your actual HOME page URL
+        });
+
+        var logoutButton = document.getElementById("logout-button");
+        logoutButton.addEventListener("click", function() {
+            window.location.href = "http://127.0.0.1:8000/login/"; // Change to your actual login page URL
+        });
+
+        var attendanceButton = document.getElementById("attendpage");
+        attendanceButton.addEventListener("click", function() {
+            window.location.href = "http://127.0.0.1:8000/check/2023/Odd/"+segments[4]; // Change to your actual login page URL
+        });
+
+
+        src="https://code.jquery.com/jquery-3.6.0.min.js"
+        
+        function noteAttendance() {
+        let boolAbsentees = [];
+
+        for (let k = 1; k <= 100; k++) {
+            const checkbox = document.getElementById("btn-" + k);
+            
+            if (!checkbox) {
+                // Break the loop if checkbox not found
+                break;
+            }
+
+            if (checkbox.checked) {
+                boolAbsentees.push(1);
+            } else {
+                boolAbsentees.push(0);
+            }
+        }
+
+        if (boolAbsentees.length === 0) {
+            console.log("No checkboxes were found or none were checked.");
+            return;
+        }
+
+        return boolAbsentees;
+    }
+
+
+            
+        function sendDataToDjango() {
+            const formInputValue1 = document.getElementById('from_').value;
+            const formInputValue2 = document.getElementById('to_').value;
+            const formInputValue3 = document.getElementById('date_').value;
+            let txt;
+            console.log(typeof formInputValue1);
+            console.log(formInputValue2);
+            console.log(formInputValue3);
+            if(parseInt(formInputValue1) > parseInt(formInputValue2)){
+                alert("Invalid! Starting period is greater than ending time")
+                return;
+            }else if(parseInt(formInputValue1) > 10 || parseInt(formInputValue1) < 1 || parseInt(formInputValue2) > 10 || parseInt(formInputValue2) < 1){
+                alert("Invalid! Period ranges from 1 to 10 ")
+                return;
+            }
+            if (confirm("Do You want to Submit ?")) {
+                // ok()
+                console.log('YES')
+                // Function that confirms the submition
+                boolAbsentees = noteAttendance(); // function to store the attendance in boolean format
+    
+                sessionStorage.absentees = boolAbsentees;
+                
+                console.log(sessionStorage.absentees)
+            } else {
+                console.log('NO')
+            }
+            data=[segments,[formInputValue1,formInputValue2,formInputValue3],[sessionStorage.absentees]]
+
+            console.log(data)
+            // Get the URL segments
+            var urlSegments = window.location.pathname.split('/');
+
+            // Extract values from the URL segments
+            var year = urlSegments[2];
+            var semester = urlSegments[3];
+            var faculty_id = urlSegments[4];
+            var course_id = urlSegments[5];
+            const data3 = data
+
+            fetch('/my_ajax_view/', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRFToken': getCookie('csrftoken'), // Replace with your CSRF token retrieval method
+                },
+                body: JSON.stringify(data),
+            })
+            .then(response => response.json())
+            .then(data5 => {
+                // Handle the response from Django if needed
+                console.log(data5);
+            })
+            .catch(error => {
+                // Handle errors
+                console.error('Error:', error);
+            });
+
+        }
+
+  
+  
+                
+            
+        
+        
+        // Replace this function with your actual CSRF token retrieval method
+        function getCookie(name) {
+            let cookieValue = null;
+            if (document.cookie && document.cookie !== '') {
+                const cookies = document.cookie.split(';');
+                for (let i = 0; i < cookies.length; i++) {
+                    const cookie = cookies[i].trim();
+                    // Does this cookie string begin with the name we want?
+                    if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                        cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                        break;
+                    }
+                }
+            }
+            return cookieValue;
+        }
+        var modal = document.getElementById("myModal");
+        // Get the <span> element that closes the modal
+        var span = document.getElementsByClassName("close")[0];
+
+        // When the user clicks the button, open the modal
+        function ok() {
+            modal.style.display = "block";
+        }
+
+        // When the user clicks on <span> (x), close the modal
+        span.onclick = function() {
+            modal.style.display = "none";
+            location.reload();
+        }
+
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+                location.reload();
+            }
+        }
+
+        
+    </script>
+</body>
+</html>
