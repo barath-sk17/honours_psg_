@@ -79,6 +79,16 @@ color: white;
     width: 50%;
     white-space: nowrap;
 }
+
+#list + #list {
+  margin-top: 30px;
+}
+
+#list + #list::before {
+  content: "";
+  display: block;
+  height: 20px;
+}
 .course-id,.course-name{
     display: inline;
 }
